@@ -28,7 +28,8 @@ class Category:
         """Геттер, для вывода списка товаров в виде строки"""
         product_str = ""
         for product in self.__products:
-            product_str = f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            product_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            product_str = "".join(product_str)
         return product_str
 
     @property
