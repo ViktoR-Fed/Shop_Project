@@ -66,9 +66,9 @@ def test_create_objects_from_json():
 
     assert len(categories) == 1
     assert isinstance(categories[0], Category)
-    assert isinstance(categories[0].products[0], Product)
+    assert isinstance(categories[0].products_in_list[0], Product)
     assert categories[0].name == "Категория 1"
-    assert categories[0].products[0].name == "Продукт 1"
+    assert categories[0].products_in_list[0].name == "Продукт 1"
 
 
 def test_read_json_file_exists():

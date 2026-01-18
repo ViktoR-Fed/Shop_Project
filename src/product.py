@@ -10,5 +10,33 @@ class Product:
         """Метод ждя инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
+
+    @classmethod
+    def new_product(cls, new_product: dict):
+        """Метод, который принимает на вход параметры товара и возвращает созданный объект класса"""
+        name, description, price, quantity = new_product.values()
+        return cls(name, description, price, quantity)
+
+
+    @property
+    def price(self):
+        """ Геттер для получения приватного атрибута 'цена' """
+        return self.__price
+
+
+    @price.setter
+    def price(self, new_price: float):
+        """ Сеттер для присваивания нового значения приватного атрибута 'цена' """
+        if new_price <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+            return
+
+            # Если новая цена ниже текущей, запрашиваем подтверждение
+        if new_price < self.__price:
+            user_input = input("Цена продукта ниже: Введите 'y' для подтверждения, 'n' для отмены!!!\n").strip().lower()
+            if user_input != 'y':
+                return  # отмена изменений
+
+        self.__price = new_price
