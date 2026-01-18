@@ -61,6 +61,7 @@ def test_category_attributes(sample_category):
     assert hasattr(Category, "category_count")
     assert hasattr(Category, "product_count")
 
+
 def test_category_setter(sample_category, sample_product):
     assert len(sample_category.products_in_list) == 3
     sample_category.add_product(sample_product)

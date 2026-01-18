@@ -19,7 +19,7 @@ class Category:
         Category.product_count += len(products)
 
     def add_product(self, product: Product):
-        """ Метод для добавления продуктов"""
+        """Метод для добавления продуктов"""
         self.__products.append(product)
         Category.product_count += 1
 

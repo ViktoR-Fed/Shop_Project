@@ -1,5 +1,6 @@
 from itertools import product
 from unittest.mock import patch
+
 import pytest
 
 from src.product import Product
@@ -46,12 +47,18 @@ def test_product_zero_quantity():
 
 def test_new_product(sample_product):
     product = Product.new_product(
-        {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
-         "quantity": 5})
+        {
+            "name": "Samsung Galaxy S23 Ultra",
+            "description": "256GB, Серый цвет, 200MP камера",
+            "price": 180000.0,
+            "quantity": 5,
+        }
+    )
     assert product.name == "Samsung Galaxy S23 Ultra"
     assert product.quantity == 5
     assert product.price == 180000.0
     assert product.description == "256GB, Серый цвет, 200MP камера"
+
 
 def test_setter_price(capsys, sample_product):
     sample_product.price = 0
