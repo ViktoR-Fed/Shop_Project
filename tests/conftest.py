@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.category_iterator import CategoryIterator
 from src.product import Product
 
 
@@ -41,3 +42,8 @@ def reset_category_counters():
     """Фикстура для сброса счетчиков перед каждым тестом"""
     Category.category_count = 0
     Category.product_count = 0
+
+
+@pytest.fixture
+def category_iterator(sample_category):
+    return CategoryIterator(sample_category)

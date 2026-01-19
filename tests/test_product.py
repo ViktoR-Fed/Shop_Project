@@ -72,3 +72,13 @@ def test_price_confirm_lower_with_yes(sample_product):
     with patch("builtins.input", return_value="y"):
         sample_product.price = 5.0
     assert sample_product.price == 5.0
+
+
+def test_str_category():
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+
+    assert (str(product1)) == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
+    assert (str(product2)) == "Iphone 15, 210000.0 руб. Остаток: 8 шт."
+    assert (str(product3)) == "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт."
