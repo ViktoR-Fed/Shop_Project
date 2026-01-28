@@ -19,6 +19,15 @@
 
     Получает наименование, описание, цену и количество продуктов
 
+### Модуль smartphone
+    Модуль представляет из себя дочерний класс по инициализации продуктов (смартфонов):
+
+**__init__(self, name, description, price, quantity, efficiency, model, memory, color)**
+
+### Модуль lawn_grass
+    Модуль представляет из себя дочерний класс по инициализации продуктов (газонной травы):
+
+**__init__(self, name, description, price, quantity, country, germination_period, color)**
 
 ### Модуль utils
     Модуль предоставляет функции для чтения и создания объектов из JSON-файла.
