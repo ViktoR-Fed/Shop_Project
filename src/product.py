@@ -7,11 +7,19 @@ class Product:
     quantity: int
 
     def __init__(self, name, description, price, quantity):
-        """Метод ждя инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
+        """Метод для инициализации экземпляра класса. Задаем значения атрибутам экземпляра."""
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
+
+    def __str__(self):
+        """Метод для отображения информации по классу."""
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        """Метод для получения общей суммы двух элементов (цена * количество)."""
+        return self.price * self.quantity + other.price * other.quantity
 
     @classmethod
     def new_product(cls, new_product: dict):
