@@ -87,3 +87,13 @@ def test_add_product():
     assert product1 + product2 == 2580000.0
     assert product1 + product3 == 1334000.0
     assert product2 + product3 == 2114000.0
+
+
+def test_category_setter_error(sample_category, sample_product):
+    with pytest.raises(TypeError):
+        sample_category.add_product(1)
+
+
+def test_category_setter_smartphone(sample_category, smartphone_product1):
+    sample_category.add_product(smartphone_product1)
+    assert sample_category.products_in_list[-1].name == "Samsung Galaxy S23 Ultra"
