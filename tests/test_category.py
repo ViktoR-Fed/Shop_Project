@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.exceptions import ZeroQuantityProduct
 from src.product import Product
 
 
@@ -97,3 +98,13 @@ def test_category_setter_error(sample_category, sample_product):
 def test_category_setter_smartphone(sample_category, smartphone_product1):
     sample_category.add_product(smartphone_product1)
     assert sample_category.products_in_list[-1].name == "Samsung Galaxy S23 Ultra"
+
+
+def test_middle_price(sample_category):
+    assert sample_category.middle_price() == 140333.33333333334
+
+
+def test_custom_exception(sample_category):
+    assert len(sample_category.products_in_list) == 3
+    with pytest.raises(ValueError):
+        product_invalid = Product("Бракованный товар", "Неверное количество", 1000.0, 0)

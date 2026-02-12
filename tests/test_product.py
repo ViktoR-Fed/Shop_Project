@@ -38,13 +38,6 @@ def test_multiple_products(sample_products):
     assert product3.price == 31000.0
 
 
-def test_product_zero_quantity():
-    """Тест продукта с нулевым количеством"""
-    product = Product("Zero Product", "No items", 500.0, 0)
-    assert product.quantity == 0
-    assert product.name == "Zero Product"
-
-
 def test_new_product(sample_product):
     product = Product.new_product(
         {
